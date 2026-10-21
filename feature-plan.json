@@ -1,0 +1,73 @@
+{
+  "schema_version": 1,
+  "current_feature": "skeleton",
+  "features": [
+    {
+      "id": "skeleton",
+      "title": "FastAPI/React Skeleton with Health Check",
+      "status": "in_progress",
+      "acceptance": [
+        "FastAPI backend serves /healthz endpoint",
+        "React+TypeScript+Vite frontend builds successfully",
+        "Dockerfiles for backend and frontend",
+        "docker-compose.yml with Keycloak and volumes",
+        "Backend tests: health check passes",
+        "Frontend typecheck and build pass"
+      ],
+      "implementation": [],
+      "tests": []
+    },
+    {
+      "id": "catalog-api",
+      "title": "Agentic Skills Catalog API",
+      "status": "planned",
+      "acceptance": [
+        "SQLite-backed catalog with 2600+ skills schema",
+        "REST endpoints: list, search, detail, import",
+        "Pagination, filtering, validation",
+        "Backend tests for catalog CRUD"
+      ],
+      "implementation": [],
+      "tests": []
+    },
+    {
+      "id": "catalog-ui",
+      "title": "Catalog Discovery Dashboard",
+      "status": "planned",
+      "acceptance": [
+        "React dashboard with skill list/search/detail",
+        "Typed API client from backend routes",
+        "Loading/error/empty states",
+        "Frontend tests for user-visible behavior"
+      ],
+      "implementation": [],
+      "tests": []
+    },
+    {
+      "id": "stack-validation",
+      "title": "Stack Validation & Planning Engine",
+      "status": "planned",
+      "acceptance": [
+        "Deterministic offline validation algorithm",
+        "Agent-owned selection workflow",
+        "Plan export/import",
+        "API + UI integration"
+      ],
+      "implementation": [],
+      "tests": []
+    },
+    {
+      "id": "auth-oidc",
+      "title": "OIDC/Keycloak Authentication",
+      "status": "planned",
+      "acceptance": [
+        "Backend session auth with HttpOnly cookies + CSRF",
+        "Keycloak realm import + SAML broker config",
+        "Frontend login/callback flow",
+        "Auth tests: unauthenticated rejection, role denial"
+      ],
+      "implementation": [],
+      "tests": []
+    }
+  ]
+}
