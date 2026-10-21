@@ -1,0 +1,21 @@
+{
+  "schema_version": 1,
+  "name": "prism-pilot-ryan-vo",
+  "owner": "A220man",
+  "email": "ryandtvo@gmail.com",
+  "domain": "AI/ML developer tools",
+  "summary": "Work in progress: prism-pilot-ryan-vo",
+  "workflows": [
+    "Discover and search 2,600+ agentic skills from the AAS catalog with semantic filtering",
+    "Validate agent stack compatibility and dependency constraints deterministically",
+    "Generate and export executable deployment plans for agent workbench environments"
+  ],
+  "auth": "oidc-keycloak-saml-broker",
+  "llm_providers": [
+    "openai-compatible",
+    "anthropic",
+    "gemini",
+    "ollama"
+  ],
+  "status": "work-in-progress"
+}

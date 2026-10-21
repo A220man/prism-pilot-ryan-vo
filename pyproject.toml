@@ -1,0 +1,40 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "prism-pilot-ryan-vo"
+version = "1.0.0"
+description = "Local agent-first control plane for AI/ML skill discovery, validation, and planning"
+readme = "README.md"
+license = {text = "MIT"}
+authors = [{name = "Ryan Vo", email = "ryandtvo@gmail.com"}]
+maintainers = [{name = "Ryan Vo", email = "ryandtvo@gmail.com"}]
+keywords = ["ai", "ml", "agent", "skills", "catalog", "validation", "planning"]
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Intended Audience :: Developers",
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3.12",
+    "Topic :: Scientific/Engineering :: Artificial Intelligence",
+]
+requires-python = ">=3.12"
+dependencies = []
+
+[project.optional-dependencies]
+dev = ["pytest>=8", "pytest-asyncio>=0.23", "httpx>=0.27", "ruff>=0.6"]
+
+[tool.setuptools.packages.find]
+where = ["backend"]
+include = ["app*"]
+
+[tool.ruff]
+line-length = 100
+target-version = "py312"
+select = ["E", "F", "I", "UP", "W"]
+ignore = []
+
+[tool.pytest.ini_options]
+pythonpath = ["backend"]
+testpaths = ["backend/tests"]
+asyncio_mode = "auto"

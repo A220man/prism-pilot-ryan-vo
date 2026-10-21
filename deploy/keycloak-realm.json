@@ -1,0 +1,33 @@
+{
+  "realm": "prism-pilot",
+  "enabled": true,
+  "displayName": "Prism Pilot",
+  "registrationAllowed": false,
+  "loginWithEmailAllowed": true,
+  "roles": {
+    "realm": [
+      { "name": "viewer", "description": "Read-only access" },
+      { "name": "operator", "description": "Write access" },
+      { "name": "admin", "description": "Full administrative access" }
+    ]
+  },
+  "clients": [
+    {
+      "clientId": "prism-pilot-frontend",
+      "name": "Prism Pilot Frontend",
+      "enabled": true,
+      "redirectUris": ["http://127.0.0.1:5173/*", "http://localhost:5173/*"],
+      "webOrigins": ["http://127.0.0.1:5173", "http://localhost:5173"],
+      "protocol": "openid-connect",
+      "publicClient": true,
+      "standardFlowEnabled": true,
+      "directAccessGrantsEnabled": false,
+      "serviceAccountsEnabled": false,
+      "attributes": {
+        "pkce.code.challenge.method": "S256"
+      }
+    }
+  ],
+  "identityProviders": [],
+  "identityProviderMappers": []
+}
