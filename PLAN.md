@@ -10,7 +10,7 @@ skeleton
 
 ### skeleton — FastAPI/React Skeleton with Health Check
 
-Status: in_progress
+Status: done
 
 Acceptance:
 - FastAPI backend serves /healthz endpoint
@@ -19,6 +19,10 @@ Acceptance:
 - docker-compose.yml with Keycloak and volumes
 - Backend tests: health check passes
 - Frontend typecheck and build pass
+
+Implementation: `backend/app/main.py`, `backend/app/api/health.py`, `backend/app/core/config.py`, `backend/Dockerfile`, `frontend/src/App.tsx`, `frontend/src/main.tsx`, `frontend/vite.config.ts`, `frontend/tsconfig.json`, `frontend/Dockerfile`, `frontend/nginx.conf`, `docker-compose.yml`
+
+Tests: `backend/tests/test_health.py`, `frontend/src/App.test.tsx`
 
 ### catalog-api — Agentic Skills Catalog API
 
