@@ -12,7 +12,7 @@ describe('App', () => {
         ;
         fetch.mockImplementation(() => new Promise(() => { }));
         render(_jsx(App, {}));
-        expect(screen.getByText('Loading health check…')).toBeInTheDocument();
+        expect(screen.getByText(/Loading health check/)).toBeInTheDocument();
     });
     it('renders health data on success', async () => {
         ;

@@ -5,7 +5,7 @@
     {
       "id": "skeleton",
       "title": "FastAPI/React Skeleton with Health Check",
-      "status": "in_progress",
+      "status": "done",
       "acceptance": [
         "FastAPI backend serves /healthz endpoint",
         "React+TypeScript+Vite frontend builds successfully",
@@ -14,8 +14,23 @@
         "Backend tests: health check passes",
         "Frontend typecheck and build pass"
       ],
-      "implementation": [],
-      "tests": []
+      "implementation": [
+        "backend/app/main.py",
+        "backend/app/api/health.py",
+        "backend/app/core/config.py",
+        "backend/Dockerfile",
+        "frontend/src/App.tsx",
+        "frontend/src/main.tsx",
+        "frontend/vite.config.ts",
+        "frontend/tsconfig.json",
+        "frontend/Dockerfile",
+        "frontend/nginx.conf",
+        "docker-compose.yml"
+      ],
+      "tests": [
+        "backend/tests/test_health.py",
+        "frontend/src/App.test.tsx"
+      ]
     },
     {
       "id": "catalog-api",
