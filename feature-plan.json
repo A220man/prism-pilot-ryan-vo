@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "current_feature": "skeleton",
+  "current_feature": "catalog-api",
   "features": [
     {
       "id": "skeleton",
@@ -35,15 +35,26 @@
     {
       "id": "catalog-api",
       "title": "Agentic Skills Catalog API",
-      "status": "planned",
+      "status": "done",
       "acceptance": [
         "SQLite-backed catalog with 2600+ skills schema",
         "REST endpoints: list, search, detail, import",
         "Pagination, filtering, validation",
         "Backend tests for catalog CRUD"
       ],
-      "implementation": [],
-      "tests": []
+      "implementation": [
+        "backend/app/models/skill.py",
+        "backend/app/models/__init__.py",
+        "backend/app/core/database.py",
+        "backend/app/schemas/skill.py",
+        "backend/app/schemas/__init__.py",
+        "backend/app/services/catalog.py",
+        "backend/app/api/catalog.py",
+        "backend/app/main.py"
+      ],
+      "tests": [
+        "backend/tests/test_catalog.py"
+      ]
     },
     {
       "id": "catalog-ui",

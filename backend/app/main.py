@@ -3,12 +3,14 @@ from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 
 from app.core.config import settings
-from app.api import health
+from app.core.database import init_db
+from app.api import health, catalog
 
 
 @asynccontextmanager
 async def lifespan(app: FastAPI):
     # Startup
+    await init_db()
     yield
     # Shutdown
 
@@ -29,6 +31,7 @@ def create_app() -> FastAPI:
     )
 
     app.include_router(health.router, prefix="/api/v1")
+    app.include_router(catalog.router, prefix="/api/v1")
 
     return app
 

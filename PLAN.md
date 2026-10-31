@@ -4,7 +4,7 @@ Each round completes one feature or repair. Future items are planned, not implem
 
 ## Current round
 
-skeleton
+catalog-api
 
 ## Roadmap
 
@@ -26,13 +26,17 @@ Tests: `backend/tests/test_health.py`, `frontend/src/App.test.tsx`
 
 ### catalog-api — Agentic Skills Catalog API
 
-Status: planned
+Status: done
 
 Acceptance:
 - SQLite-backed catalog with 2600+ skills schema
 - REST endpoints: list, search, detail, import
 - Pagination, filtering, validation
 - Backend tests for catalog CRUD
+
+Implementation: `backend/app/models/skill.py`, `backend/app/models/__init__.py`, `backend/app/core/database.py`, `backend/app/schemas/skill.py`, `backend/app/schemas/__init__.py`, `backend/app/services/catalog.py`, `backend/app/api/catalog.py`, `backend/app/main.py`
+
+Tests: `backend/tests/test_catalog.py`
 
 ### catalog-ui — Catalog Discovery Dashboard
 
