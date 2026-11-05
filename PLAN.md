@@ -4,7 +4,7 @@ Each round completes one feature or repair. Future items are planned, not implem
 
 ## Current round
 
-catalog-api
+catalog-ui
 
 ## Roadmap
 
@@ -40,13 +40,17 @@ Tests: `backend/tests/test_catalog.py`
 
 ### catalog-ui — Catalog Discovery Dashboard
 
-Status: planned
+Status: in_progress
 
 Acceptance:
 - React dashboard with skill list/search/detail
 - Typed API client from backend routes
 - Loading/error/empty states
 - Frontend tests for user-visible behavior
+
+Implementation: `frontend/src/types/skill.ts`, `frontend/src/api/catalog.ts`, `frontend/src/components/SkillCard.tsx`, `frontend/src/components/SkillList.tsx`, `frontend/src/App.tsx`
+
+Tests: `frontend/src/components/SkillCard.test.tsx`, `frontend/src/components/SkillList.test.tsx`
 
 ### stack-validation — Stack Validation & Planning Engine
 

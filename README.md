@@ -15,14 +15,15 @@ AI/ML developers face fragmentation across thousands of agentic skills with no u
 
 **Intended user**: AI/ML engineers and researchers building agent systems who need reliable skill discovery, compatibility checking, and reproducible deployment planning.
 
-## Current Status (Round 1)
+## Current Status (Round 2)
 
 - ✅ FastAPI backend skeleton with `/healthz`
 - ✅ React + TypeScript + Vite frontend skeleton
 - ✅ Dockerfiles + docker-compose with Keycloak
-- ⏳ Backend tests (health check)
-- ⏳ Frontend typecheck/build
-- ⏳ Catalog API & UI (planned)
+- ✅ Backend tests (health check + catalog CRUD)
+- ✅ Frontend typecheck and build pass
+- ⏳ Catalog API (done)
+- ⏳ Catalog UI (in_progress: skill list/search/filter/pagination)
 - ⏳ Stack validation engine (planned)
 - ⏳ OIDC/Keycloak auth (planned)
 
@@ -52,16 +53,20 @@ graph TB
     CAT --> MCP
 ```
 
-## API Reference (Skeleton)
+## API Reference
 
 | Method | Endpoint | Description |
 |--------|----------|-------------|
 | GET | `/healthz` | Health check |
-| GET | `/api/v1/skills` | List skills (paginated, filterable) |
-| GET | `/api/v1/skills/{id}` | Skill detail |
-| POST | `/api/v1/skills/search` | Semantic search |
-| POST | `/api/v1/validate` | Stack validation |
-| POST | `/api/v1/plan` | Generate deployment plan |
+| GET | `/api/v1/catalog/skills` | List skills (paginated, filterable) |
+| GET | `/api/v1/catalog/skills/{id}` | Skill detail |
+| GET | `/api/v1/catalog/skills/name/{name}` | Skill by name |
+| POST | `/api/v1/catalog/skills` | Create skill |
+| PATCH | `/api/v1/catalog/skills/{id}` | Update skill |
+| DELETE | `/api/v1/catalog/skills/{id}` | Delete skill |
+| POST | `/api/v1/catalog/import` | Bulk import skills |
+| GET | `/api/v1/catalog/categories` | List categories |
+| GET | `/api/v1/catalog/subcategories` | List subcategories |
 
 ## AI/ML Evaluation
 
@@ -71,14 +76,14 @@ graph TB
 
 **Baseline**: Catalog ingestion and indexing of 2,600+ records with <500ms search latency on local SQLite.
 
-**Measured results**: TBD — Round 1 establishes skeleton only.
+**Measured results**: Catalog API: 15/15 tests pass. Frontend: builds successfully, 3/3 tests pass.
 
 **Failure cases**: Upstream schema changes, missing dependency metadata, LLM provider unavailable (advisory only).
 
 ## Security Limitations
 
 - Local-first design: no external network calls for core workflows
-- OIDC/Keycloak for auth (not yet implemented in Round 1)
+- OIDC/Keycloak for auth (not yet implemented in Round 2)
 - LLM_API_KEY only server-side; opt-in advisory explanations
 - No hardcoded secrets; `.env.example` documents required config
 

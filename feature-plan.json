@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "current_feature": "catalog-api",
+  "current_feature": "catalog-ui",
   "features": [
     {
       "id": "skeleton",
@@ -59,15 +59,24 @@
     {
       "id": "catalog-ui",
       "title": "Catalog Discovery Dashboard",
-      "status": "planned",
+      "status": "in_progress",
       "acceptance": [
         "React dashboard with skill list/search/detail",
         "Typed API client from backend routes",
         "Loading/error/empty states",
         "Frontend tests for user-visible behavior"
       ],
-      "implementation": [],
-      "tests": []
+      "implementation": [
+        "frontend/src/types/skill.ts",
+        "frontend/src/api/catalog.ts",
+        "frontend/src/components/SkillCard.tsx",
+        "frontend/src/components/SkillList.tsx",
+        "frontend/src/App.tsx"
+      ],
+      "tests": [
+        "frontend/src/components/SkillCard.test.tsx",
+        "frontend/src/components/SkillList.test.tsx"
+      ]
     },
     {
       "id": "stack-validation",
