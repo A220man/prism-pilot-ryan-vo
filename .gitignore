@@ -49,3 +49,14 @@ frontend/dist/
 # OS
 .DS_Store
 Thumbs.db
+.turbo/
+.env.*.local
+**/data/media/
+*.pyc
+*.db-wal
+*.db-shm
+*.sqlite-wal
+*.sqlite-shm
+*.sqlite3
+*.sqlite3-wal
+*.sqlite3-shm
