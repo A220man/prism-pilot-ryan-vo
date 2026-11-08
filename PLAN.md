@@ -40,7 +40,7 @@ Tests: `backend/tests/test_catalog.py`
 
 ### catalog-ui — Catalog Discovery Dashboard
 
-Status: in_progress
+Status: done
 
 Acceptance:
 - React dashboard with skill list/search/detail
@@ -48,9 +48,9 @@ Acceptance:
 - Loading/error/empty states
 - Frontend tests for user-visible behavior
 
-Implementation: `frontend/src/types/skill.ts`, `frontend/src/api/catalog.ts`, `frontend/src/components/SkillCard.tsx`, `frontend/src/components/SkillList.tsx`, `frontend/src/App.tsx`
+Implementation: `frontend/src/types/skill.ts`, `frontend/src/api/catalog.ts`, `frontend/src/components/SkillCard.tsx`, `frontend/src/components/SkillList.tsx`, `frontend/src/App.tsx`, `frontend/src/components/SkillCard.test.tsx`, `frontend/src/components/SkillList.test.tsx`
 
-Tests: `frontend/src/components/SkillCard.test.tsx`, `frontend/src/components/SkillList.test.tsx`
+Tests: `frontend/src/components/SkillCard.test.tsx`, `frontend/src/components/SkillList.test.tsx`, `frontend/src/App.test.tsx`
 
 ### stack-validation — Stack Validation & Planning Engine
 
