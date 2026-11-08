@@ -1,8 +1,20 @@
 # Changelog
 
-## 1.3.0 — work-in-progress checkpoint
+## 1.4.0 — work-in-progress checkpoint
 
 Partial code published for continued development. Known issues: STATUS.md.
+
+## 1.3.0 — work-in-progress checkpoint
+
+### Added
+- **catalog-ui** — Catalog Discovery Dashboard
+  - React dashboard with skill list, search, category/subcategory filtering, and pagination
+  - SkillCard component displaying skill details (name, category, subcategory, description, tags, version, author)
+  - SkillList component with search input, category/subcategory dropdowns, pagination controls
+  - Typed API client (`catalogApi`) matching backend routes
+  - Loading, error (with retry), and empty states
+  - Comprehensive frontend tests: 9 SkillCard tests + 12 SkillList tests + 3 App tests = 24 passing
+  - Navigation between Health and Catalog views
 
 ## 1.2.0 — work-in-progress checkpoint
 

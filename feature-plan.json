@@ -59,7 +59,7 @@
     {
       "id": "catalog-ui",
       "title": "Catalog Discovery Dashboard",
-      "status": "in_progress",
+      "status": "done",
       "acceptance": [
         "React dashboard with skill list/search/detail",
         "Typed API client from backend routes",
@@ -71,11 +71,14 @@
         "frontend/src/api/catalog.ts",
         "frontend/src/components/SkillCard.tsx",
         "frontend/src/components/SkillList.tsx",
-        "frontend/src/App.tsx"
+        "frontend/src/App.tsx",
+        "frontend/src/components/SkillCard.test.tsx",
+        "frontend/src/components/SkillList.test.tsx"
       ],
       "tests": [
         "frontend/src/components/SkillCard.test.tsx",
-        "frontend/src/components/SkillList.test.tsx"
+        "frontend/src/components/SkillList.test.tsx",
+        "frontend/src/App.test.tsx"
       ]
     },
     {
