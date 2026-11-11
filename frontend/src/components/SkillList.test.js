@@ -208,4 +208,26 @@ describe('SkillList', () => {
             expect(nextButton).toBeDisabled();
         });
     });
+    it('opens detail modal when skill card is clicked', async () => {
+        ;
+        catalogApi.listSkills.mockResolvedValue(mockListResponse);
+        catalogApi.getCategories.mockResolvedValue(['ml']);
+        render(_jsx(SkillList, {}));
+        await waitFor(() => {
+            expect(screen.getByText('Skill One')).toBeInTheDocument();
+        });
+        // Click on skill card
+        fireEvent.click(screen.getByText('Skill One'));
+        // Check that detail modal is open - look for the modal title (h2)
+        await waitFor(() => {
+            expect(screen.getByRole('heading', { level: 2, name: 'Skill One' })).toBeInTheDocument();
+        });
+        // Click close button in modal
+        const closeButton = screen.getByLabelText('Close');
+        fireEvent.click(closeButton);
+        // Check that detail modal is closed
+        await waitFor(() => {
+            expect(screen.queryByRole('heading', { level: 2, name: 'Skill One' })).not.toBeInTheDocument();
+        });
+    });
 });
