@@ -2,6 +2,7 @@ import { jsx as _jsx, jsxs as _jsxs } from "react/jsx-runtime";
 import { useState, useEffect } from 'react';
 import { catalogApi } from '../api/catalog';
 import { SkillCard } from './SkillCard';
+import { SkillDetailModal } from './SkillDetailModal';
 export function SkillList({ initialCategory, initialSearch }) {
     const [skills, setSkills] = useState([]);
     const [loading, setLoading] = useState(true);
@@ -18,6 +19,7 @@ export function SkillList({ initialCategory, initialSearch }) {
         search: initialSearch || '',
     });
     const [categories, setCategories] = useState([]);
+    const [selectedSkill, setSelectedSkill] = useState(null);
     useEffect(() => {
         fetchCategories();
     }, []);
@@ -66,6 +68,12 @@ export function SkillList({ initialCategory, initialSearch }) {
     const handlePageChange = (page) => {
         setPagination((prev) => ({ ...prev, page }));
     };
+    const handleSkillClick = (skill) => {
+        setSelectedSkill(skill);
+    };
+    const handleCloseDetail = () => {
+        setSelectedSkill(null);
+    };
     if (loading && skills.length === 0) {
         return (_jsx("div", { style: { padding: '2rem', textAlign: 'center', color: '#6b7280' }, children: "Loading skills\u2026" }));
     }
@@ -103,7 +111,7 @@ export function SkillList({ initialCategory, initialSearch }) {
                                     fontSize: '0.875rem',
                                     backgroundColor: 'white',
                                     outline: 'none',
-                                }, children: _jsx("option", { value: "", children: "All Subcategories" }) })] })] }), skills.length === 0 ? (_jsx("div", { style: { padding: '3rem', textAlign: 'center', color: '#6b7280' }, children: "No skills found. Try adjusting your filters." })) : (_jsx("div", { style: { display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(320px, 1fr))', gap: '1rem' }, children: skills.map((skill) => (_jsx(SkillCard, { skill: skill }, skill.id))) })), pagination.total_pages > 1 && (_jsxs("div", { style: { marginTop: '1.5rem', display: 'flex', justifyContent: 'center', alignItems: 'center', gap: '0.5rem' }, children: [_jsx("button", { onClick: () => handlePageChange(pagination.page - 1), disabled: pagination.page <= 1, style: {
+                                }, children: _jsx("option", { value: "", children: "All Subcategories" }) })] })] }), skills.length === 0 ? (_jsx("div", { style: { padding: '3rem', textAlign: 'center', color: '#6b7280' }, children: "No skills found. Try adjusting your filters." })) : (_jsx("div", { style: { display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(320px, 1fr))', gap: '1rem' }, children: skills.map((skill) => (_jsx(SkillCard, { skill: skill, onClick: () => handleSkillClick(skill) }, skill.id))) })), pagination.total_pages > 1 && (_jsxs("div", { style: { marginTop: '1.5rem', display: 'flex', justifyContent: 'center', alignItems: 'center', gap: '0.5rem' }, children: [_jsx("button", { onClick: () => handlePageChange(pagination.page - 1), disabled: pagination.page <= 1, style: {
                             padding: '0.5rem 1rem',
                             backgroundColor: pagination.page <= 1 ? '#f3f4f6' : '#3b82f6',
                             color: pagination.page <= 1 ? '#9ca3af' : 'white',
@@ -117,5 +125,5 @@ export function SkillList({ initialCategory, initialSearch }) {
                             border: 'none',
                             borderRadius: '4px',
                             cursor: pagination.page >= pagination.total_pages ? 'not-allowed' : 'pointer',
-                        }, children: "Next" })] }))] }));
+                        }, children: "Next" })] })), _jsx(SkillDetailModal, { skill: selectedSkill, isOpen: !!selectedSkill, onClose: handleCloseDetail })] }));
 }

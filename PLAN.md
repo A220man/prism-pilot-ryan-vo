@@ -48,7 +48,7 @@ Acceptance:
 - Loading/error/empty states
 - Frontend tests for user-visible behavior
 
-Implementation: `frontend/src/types/skill.ts`, `frontend/src/api/catalog.ts`, `frontend/src/components/SkillCard.tsx`, `frontend/src/components/SkillList.tsx`, `frontend/src/App.tsx`, `frontend/src/components/SkillCard.test.tsx`, `frontend/src/components/SkillList.test.tsx`
+Implementation: `frontend/src/types/skill.ts`, `frontend/src/api/catalog.ts`, `frontend/src/components/SkillCard.tsx`, `frontend/src/components/SkillList.tsx`, `frontend/src/components/SkillDetailModal.tsx`, `frontend/src/App.tsx`, `frontend/src/components/SkillCard.test.tsx`, `frontend/src/components/SkillList.test.tsx`
 
 Tests: `frontend/src/components/SkillCard.test.tsx`, `frontend/src/components/SkillList.test.tsx`, `frontend/src/App.test.tsx`
 

@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import { Skill, SkillListResponse } from '../types/skill';
 import { catalogApi } from '../api/catalog';
 import { SkillCard } from './SkillCard';
+import { SkillDetailModal } from './SkillDetailModal';
 
 interface SkillListProps {
   initialCategory?: string;
@@ -24,6 +25,7 @@ export function SkillList({ initialCategory, initialSearch }: SkillListProps) {
     search: initialSearch || '',
   });
   const [categories, setCategories] = useState<string[]>([]);
+  const [selectedSkill, setSelectedSkill] = useState<Skill | null>(null);
 
   useEffect(() => {
     fetchCategories();
@@ -74,6 +76,14 @@ export function SkillList({ initialCategory, initialSearch }: SkillListProps) {
 
   const handlePageChange = (page: number) => {
     setPagination((prev) => ({ ...prev, page }));
+  };
+
+  const handleSkillClick = (skill: Skill) => {
+    setSelectedSkill(skill);
+  };
+
+  const handleCloseDetail = () => {
+    setSelectedSkill(null);
   };
 
   if (loading && skills.length === 0) {
@@ -184,7 +194,7 @@ export function SkillList({ initialCategory, initialSearch }: SkillListProps) {
       ) : (
         <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(320px, 1fr))', gap: '1rem' }}>
           {skills.map((skill) => (
-            <SkillCard key={skill.id} skill={skill} />
+            <SkillCard key={skill.id} skill={skill} onClick={() => handleSkillClick(skill)} />
           ))}
         </div>
       )}
@@ -226,6 +236,8 @@ export function SkillList({ initialCategory, initialSearch }: SkillListProps) {
           </button>
         </div>
       )}
+
+      <SkillDetailModal skill={selectedSkill} isOpen={!!selectedSkill} onClose={handleCloseDetail} />
     </div>
   );
 }
