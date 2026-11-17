@@ -7,6 +7,10 @@ from app.schemas.skill import (
     SkillImportRequest,
     SkillImportResponse,
 )
+from app.schemas.stack_validation import (
+    StackValidationRequest,
+    StackValidationResult,
+)
 
 __all__ = [
     "SkillBase",
@@ -16,4 +20,6 @@ __all__ = [
     "SkillListResponse",
     "SkillImportRequest",
     "SkillImportResponse",
+    "StackValidationRequest",
+    "StackValidationResult",
 ]
