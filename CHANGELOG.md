@@ -1,5 +1,19 @@
 # Changelog
 
+## 1.7.0 — work-in-progress checkpoint
+
+Partial code published for continued development. Known issues: STATUS.md.
+
+## 1.6.1 — work-in-progress checkpoint
+
+### Added
+- **stack-validation** — Stack Validation & Planning Engine
+  - Deterministic offline validation algorithm with tag compatibility checking
+  - Agent-owned selection workflow (service layer)
+  - Plan export/import functionality
+  - API endpoint `POST /api/v1/stack/validate` for validating skill ID stacks
+  - Backend tests: 4 passing tests covering success, missing skills, tag conflicts, and mixed compatibility
+
 ## 1.6.0 — work-in-progress checkpoint
 
 Partial code published for continued development. Known issues: STATUS.md.
