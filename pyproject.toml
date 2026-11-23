@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "prism-pilot-ryan-vo"
-version = "1.6.0"
+version = "1.7.0"
 description = "Local agent-first control plane for AI/ML skill discovery, validation, and planning"
 readme = "README.md"
 license = {text = "MIT"}

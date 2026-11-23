@@ -4,7 +4,7 @@ Each round completes one feature or repair. Future items are planned, not implem
 
 ## Current round
 
-catalog-ui
+stack-validation
 
 ## Roadmap
 
@@ -54,13 +54,17 @@ Tests: `frontend/src/components/SkillCard.test.tsx`, `frontend/src/components/Sk
 
 ### stack-validation — Stack Validation & Planning Engine
 
-Status: planned
+Status: in_progress
 
 Acceptance:
 - Deterministic offline validation algorithm
 - Agent-owned selection workflow
 - Plan export/import
 - API + UI integration
+
+Implementation: `backend/app/services/stack_validation.py`, `backend/app/schemas/stack_validation.py`, `backend/app/api/stack_validation.py`, `backend/tests/test_stack_validation.py`
+
+Tests: `backend/tests/test_stack_validation.py`
 
 ### auth-oidc — OIDC/Keycloak Authentication
 
