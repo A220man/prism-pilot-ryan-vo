@@ -3,7 +3,11 @@ from sqlalchemy import select
 from sqlalchemy.ext.asyncio import AsyncSession
 
 from app.models.skill import Skill
-from app.schemas.stack_validation import StackValidationRequest, StackValidationResult
+from app.schemas.stack_validation import (
+    StackPlan,
+    StackValidationRequest,
+    StackValidationResult,
+)
 
 
 def _skill_tags(skill: Skill) -> Set[str]:
@@ -63,22 +67,22 @@ async def validate_stack_online(
     )
 
 
-def export_plan(valid_skill_ids: List[int], invalid_skill_ids: List[int]) -> dict:
-    """Export a validation plan as a serializable dict."""
-    return {
-        "valid_skill_ids": valid_skill_ids,
-        "invalid_skill_ids": invalid_skill_ids,
-        "valid": len(invalid_skill_ids) == 0 and len(valid_skill_ids) > 0,
-    }
+def export_plan(valid_skill_ids: List[int], invalid_skill_ids: List[int]) -> StackPlan:
+    """Export a validation plan as a serializable model."""
+    return StackPlan(
+        valid=len(invalid_skill_ids) == 0 and len(valid_skill_ids) > 0,
+        valid_skill_ids=valid_skill_ids,
+        invalid_skill_ids=invalid_skill_ids,
+    )
 
 
-def import_plan(plan: dict) -> StackValidationResult:
-    """Import a previously exported validation plan."""
+def import_plan(plan: StackPlan) -> StackValidationResult:
+    """Import a previously exported validation plan into a validation result."""
     return StackValidationResult(
-        valid=plan.get("valid", False),
+        valid=plan.valid,
         errors=[],
-        valid_skill_ids=plan.get("valid_skill_ids", []),
-        invalid_skill_ids=plan.get("invalid_skill_ids", []),
+        valid_skill_ids=plan.valid_skill_ids,
+        invalid_skill_ids=plan.invalid_skill_ids,
     )
 
 
